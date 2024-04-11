@@ -1,12 +1,14 @@
 {
-  "name": "dymo-connect",
+  "name": "vabrell/dymo-connect",
   "version": "1.0.5",
   "description": "Library for printing DYMO labels",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "npx tsc"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jack-carling/dymo-connect.git"
+    "url": "git+https://github.com/vabrell/dymo-connect.git"
   },
   "keywords": [
     "node",
@@ -15,14 +17,17 @@
     "label",
     "print"
   ],
-  "author": "Jack Carling",
+  "author": "Jack Carling, Victor Abrell",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jack-carling/dymo-connect/issues"
+    "url": "https://github.com/vabrell/dymo-connect/issues"
   },
-  "homepage": "https://github.com/jack-carling/dymo-connect#readme",
+  "homepage": "https://github.com/vabrell/dymo-connect#readme",
   "dependencies": {
     "@xmldom/xmldom": "^0.8.2",
     "cross-fetch": "^3.1.5"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
   }
 }

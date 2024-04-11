@@ -6,13 +6,13 @@ DYMO Connect software for Windows or Mac needs to be installed and running in th
 ### Install
 
 ```
-npm install dymo-connect
+npm install git+https://github.com/vabrell/dymo-connect.git
 ```
 
 ### Usage
 
 ```javascript
-const Dymo = require('dymo-connect');
+import Dymo from 'dymo-connect';
 
 Dymo.getPrinters(); // use with await or .then()
 
