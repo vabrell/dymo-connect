@@ -73,37 +73,27 @@ class Dymo {
     }
   }
 
-  static async createLabelParameters(parameters: LabelParameters) {
-    const xml: XMLDocument = (new DOMParser()).parseFromString('<LabelWriterPrintParams/>');
-    const root: Element = xml.documentElement;
-
-    const appendElement = (parentElement: Element, tagName: string, value: string) => {
-      const element = parentElement.ownerDocument.createElement(tagName);
-      element.appendChild(parentElement.ownerDocument.createTextNode(value));
-      parentElement.appendChild(element);
-    };
-
-    const serialize = (document: Document) => {
-      const serializer = new XMLSerializer();
-      return serializer.serializeToString(document);
-    };
+  static createLabelParameters(parameters: LabelParameters): string {
+    let xmlParameters = '<LabelWriterPrintParams>';
 
     if (parameters.copies && parameters.copies > 1)
-      appendElement(root, "Copies", parameters.copies.toString());
+      xmlParameters += `<Copies>${parameters.copies}</Copies>`;
 
     if (parameters?.jobTitle)
-      appendElement(root, "JobTitle", parameters.jobTitle);
+      xmlParameters += `<JobTitle>${parameters.jobTitle}</JobTitle>`;
 
     if (parameters?.flowDirection)
-      appendElement(root, "FlowDirection", parameters.flowDirection);
+      xmlParameters += `<FlowDirection>${parameters.jobTitle}</FlowDirection>`;
 
     if (parameters?.printQuality)
-      appendElement(root, "PrintQuality", parameters.printQuality);
+      xmlParameters += `<PrintQuality>${parameters.printQuality}</PrintQuality>`;
 
     if (parameters?.twinTurboRoll)
-      appendElement(root, "TwinTurboRoll", parameters.twinTurboRoll);
+      xmlParameters += `<TwinTurboRoll>${parameters.twinTurboRoll}</TwinTurboRoll>`;
 
-    return serialize(xml);
+    xmlParameters += '</LabelWriterPrintParams>';
+
+    return xmlParameters;
   }
 
 }
@@ -117,4 +107,4 @@ type LabelParameters = {
 };
 
 export default Dymo;
-export { };
+export { LabelParameters };

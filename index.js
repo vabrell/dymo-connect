@@ -87,30 +87,19 @@ class Dymo {
         });
     }
     static createLabelParameters(parameters) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const xml = (new xmldom_1.DOMParser()).parseFromString('<LabelWriterPrintParams/>');
-            const root = xml.documentElement;
-            const appendElement = (parentElement, tagName, value) => {
-                const element = parentElement.ownerDocument.createElement(tagName);
-                element.appendChild(parentElement.ownerDocument.createTextNode(value));
-                parentElement.appendChild(element);
-            };
-            const serialize = (document) => {
-                const serializer = new XMLSerializer();
-                return serializer.serializeToString(document);
-            };
-            if (parameters.copies && parameters.copies > 1)
-                appendElement(root, "Copies", parameters.copies.toString());
-            if (parameters === null || parameters === void 0 ? void 0 : parameters.jobTitle)
-                appendElement(root, "JobTitle", parameters.jobTitle);
-            if (parameters === null || parameters === void 0 ? void 0 : parameters.flowDirection)
-                appendElement(root, "FlowDirection", parameters.flowDirection);
-            if (parameters === null || parameters === void 0 ? void 0 : parameters.printQuality)
-                appendElement(root, "PrintQuality", parameters.printQuality);
-            if (parameters === null || parameters === void 0 ? void 0 : parameters.twinTurboRoll)
-                appendElement(root, "TwinTurboRoll", parameters.twinTurboRoll);
-            return serialize(xml);
-        });
+        let xmlParameters = '<LabelWriterPrintParams>';
+        if (parameters.copies && parameters.copies > 1)
+            xmlParameters += `<Copies>${parameters.copies}</Copies>`;
+        if (parameters === null || parameters === void 0 ? void 0 : parameters.jobTitle)
+            xmlParameters += `<JobTitle>${parameters.jobTitle}</JobTitle>`;
+        if (parameters === null || parameters === void 0 ? void 0 : parameters.flowDirection)
+            xmlParameters += `<FlowDirection>${parameters.jobTitle}</FlowDirection>`;
+        if (parameters === null || parameters === void 0 ? void 0 : parameters.printQuality)
+            xmlParameters += `<PrintQuality>${parameters.printQuality}</PrintQuality>`;
+        if (parameters === null || parameters === void 0 ? void 0 : parameters.twinTurboRoll)
+            xmlParameters += `<TwinTurboRoll>${parameters.twinTurboRoll}</TwinTurboRoll>`;
+        xmlParameters += '</LabelWriterPrintParams>';
+        return xmlParameters;
     }
 }
 exports.default = Dymo;

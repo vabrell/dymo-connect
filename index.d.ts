@@ -16,7 +16,7 @@ declare class Dymo {
         success: boolean;
         data: unknown;
     }>;
-    static createLabelParameters(parameters: LabelParameters): Promise<string>;
+    static createLabelParameters(parameters: LabelParameters): string;
 }
 type LabelParameters = {
     copies: number | null;
@@ -26,4 +26,4 @@ type LabelParameters = {
     twinTurboRoll: 'Left' | 'Right' | 'Auto' | null;
 };
 export default Dymo;
-export {};
+export { LabelParameters };
