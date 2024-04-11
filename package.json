@@ -1,6 +1,6 @@
 {
   "name": "vabrell-dymo-connect",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Library for printing DYMO labels",
   "main": "index.js",
   "scripts": {
