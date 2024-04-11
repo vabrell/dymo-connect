@@ -14,7 +14,6 @@
 
     /* Emit */
     "declaration": true,                              /* Generate .d.ts files from TypeScript and JavaScript files in your project. */
-    "emitDeclarationOnly": true,                      /* Only output d.ts files and not JavaScript files. */
     "removeComments": true,                           /* Disable emitting comments. */
     "noEmitOnError": true,                            /* Disable emitting files if any type checking errors are reported. */
     "allowSyntheticDefaultImports": true,             /* Allow 'import x from y' when a module doesn't have a default export. */
