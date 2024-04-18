@@ -55,7 +55,8 @@ class Dymo {
   static async printLabel(printer: string, xml: string, parameters: LabelParameters) {
     try {
       const params = this.createLabelParameters(parameters);
-      const body = `printerName=${printer}&labelXml=${xml}&printParamsXml=${params}`;
+      const body = `printerName=${printer}&labelXml=${encodeURIComponent(xml)}&printParamsXml=${encodeURIComponent(params)}`;
+
       const response = await fetch(`${this.url}/PrintLabel`, {
         body,
         method: 'POST',
