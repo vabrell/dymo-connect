@@ -68,7 +68,7 @@ class Dymo {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const params = this.createLabelParameters(parameters);
-                const body = `printerName=${printer}&labelXml=${xml}&printParamsXml=${params}`;
+                const body = `printerName=${printer}&labelXml=${encodeURIComponent(xml)}&printParamsXml=${encodeURIComponent(params)}`;
                 const response = yield (0, cross_fetch_1.default)(`${this.url}/PrintLabel`, {
                     body,
                     method: 'POST',
